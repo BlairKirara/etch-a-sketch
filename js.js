@@ -1,6 +1,7 @@
 const containter = document.getElementById('container');
 const gridSizeButton = document.getElementById('gridSizeButton');
 const kwadraty = document.getElementsByClassName('kwadraty');
+const buttonText = document.getElementById('buttonText');
 let gridSize = 16;
 let containerWidth = 500;
 
@@ -20,28 +21,40 @@ function createGrid(){
         }
 }
 
-function randomRGB(){
-  let num1 = Math.random() * (255 - 1) + 1;
-  let num2 = Math.random() * (255 - 1) + 1;
-  let num3 = Math.random() * (255 - 1) + 1;
+function randomColorNum() {
+  return Math.floor(Math.random() * 256);
 }
 
-randomRGB();
+function randomRGB() {
+  return `(${randomColorNum()} ${randomColorNum()} ${randomColorNum()}`;
+}
+
 
 createGrid();
 
+let opacity = 100;
 
     containter.addEventListener(
         "mouseover",
         (event) => {
-          // highlight the mouseover target
-          event.target.style.backgroundColor = "orange";
+          
+            const randomColor = randomRGB();
+            event.target.style.background = "rgb" + randomColor + `)`;
+            containter.style.opacity = `${opacity}%`;
+            //event.target.style.background = "rgb" + randomColor + `/ ${opacity}%)`;
+            opacity = opacity - 1;
+             if(opacity == 0){
+              buttonText.textContent = "Your squares disappeared! Enter a new grid size to refresh and draw again!"
+             }
+
         }
       );
 
       gridSizeButton.addEventListener(
         "click",
         () => {
+          opacity = 100;
+           buttonText.textContent = "Choose a different grid size";
             while (containter.firstChild) {
                 containter.removeChild(containter.firstChild);
               }

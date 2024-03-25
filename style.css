@@ -1,19 +1,48 @@
+body {
+  background-color: rgb(255, 227, 232);
+}
+
 #container {
   display: flex;
   width: 500px;
   flex-wrap: wrap;
   margin-left: auto;
   margin-right: auto;
+  border: 5px solid transparent;
+  border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
+  border-image-slice: 1;
 }
 #gridSizeButton {
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-size: 20px;
+  text-shadow: 5px 5px 6px pink;
+  background: none;
+  color: rgb(212, 31, 116);
+  font-weight: 700;
+  border: none;
   margin-left: auto;
   margin-right: auto;
   margin-top: 100px;
   margin-bottom: 20px;;
 }
 
-.kwadraty {
-  background-color: aquamarine;
+#gridSizeButton:hover {
+  color: rgb(24, 176, 226); /* Change text color on hover */
+  text-shadow: 5px 5px 6px rgb(164, 201, 250);
+
 }
+
+img {
+  box-shadow: 5px 5px 6px pink;
+}
+
+
+
+.kwadraty {
+  background-color: rgb(255, 255, 255);
+}
+
+
